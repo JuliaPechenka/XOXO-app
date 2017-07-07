@@ -6,12 +6,14 @@ export default class Team extends React.Component {
         this.state = {
             isActive: false
         };
+
+        this.selectTeam = this.selectTeam.bind(this);
     }
 
     selectTeam(team) {
         this.setState({
             isActive: true
-        })
+        });
 
         this.props.onClick(
             this.props.value
@@ -21,7 +23,7 @@ export default class Team extends React.Component {
     render() {
         return (
             <div className="team">
-                <div className={"item " + (this.state.isActive ? 'active' : 'hidden')} onClick={this.selectTeam.bind(this)}>{this.props.value}</div>
+                <div className={"item " + (this.state.isActive ? 'active' : 'hidden')} onClick={this.selectTeam}>{this.props.value}</div>
             </div>
         )
     }

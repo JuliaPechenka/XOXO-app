@@ -79,6 +79,63 @@ body {
     background: #c8c8c8;
 }
 
+.level {
+    padding-top: 50px;
+    letter-spacing: 0.7px;
+}
+.level .header {
+
+}
+.difficulty-select {
+    border: none;
+    border-bottom: 1px solid #776e65;
+    margin-left: 20px;
+    width: 80px;
+    outline: none;
+    color: #776e65;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: 0.7px;
+    padding: 3px 0;
+    background: #faf8ef;
+    transition-duration: 0.3s;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    background-image: linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%);
+    background-position: calc(100% - 5px) calc(8px), calc(100% + 1px) calc(8px);
+    background-size: 7px 5px, 6px 5px;
+    background-repeat: no-repeat;
+}
+.difficulty-select:focus {
+    background-image: linear-gradient(45deg, #0dd3c7 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, #0dd3c7 50%);
+    background-position: calc(100% + 1px) 8px, calc(100% - 5px) 8px;
+    border-color: #0dd3c7;
+    outline: 0;
+}
+
+.difficulty-select option {
+    padding: 2px 15px;
+}
+.difficulty-select option[selected]{
+    background-color: 206972;
+    color: #ffffff;
+}
+.difficulty-select option[selected]:before {
+    content: '&#10003';
+}
+
+
+select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+}
+
 .game-container {
     position: relative;
     width: 300px;
