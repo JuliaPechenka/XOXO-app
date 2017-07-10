@@ -26,7 +26,7 @@ export default class Level extends React.Component {
     render() {
         return (
             <div className="level">
-                <label className="header" htmlFor="difficulty">Select the difficulty level: </label>
+                <label htmlFor="difficulty">Select the difficulty level: </label>
                 <select className="difficulty-select" name="difficulty" value={this.state.value} onChange={this.handleChange}>
                     <option value="" disabled></option>
                     <option value="easy">Easy</option>

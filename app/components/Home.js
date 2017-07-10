@@ -1,5 +1,5 @@
 import React from 'react';
-var Link = require('react-router-dom').Link;
+import { Link } from 'react-router-dom';
 
 function Home() {
     return (

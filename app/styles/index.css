@@ -2,6 +2,15 @@ body {
     font-family: 'Montserrat', sans-serif;
     background: #faf8ef;
     color: #776e65;
+    margin: 0;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+:active, :focus {
+    outline: 0;
 }
 
 .container {
@@ -9,8 +18,14 @@ body {
     margin: 0 auto;
 }
 
+.header {
+    background: rgb(101, 175, 184);
+}
 .nav {
     display: flex;
+    margin: 0;
+    padding: 15px;
+    color: #fff;
 }
 .nav ul {
     padding: 0;
@@ -31,7 +46,7 @@ body {
 .description {
     max-width: 800px;
     margin: 0 auto;
-    padding-top: 30px;
+    padding: 50px 20px;
     text-align: center;
 }
 .description p {
@@ -48,7 +63,8 @@ body {
 }
 
 .team-container {
-    width: 300px;
+    max-width: 300px;
+    padding: 0 20px;
     margin: 0 auto;
 }
 .team-container .team {
@@ -81,15 +97,13 @@ body {
 
 .level {
     padding-top: 50px;
-    letter-spacing: 0.7px;
-}
-.level .header {
-
+    letter-spacing: 0.5px;
 }
 .difficulty-select {
     border: none;
     border-bottom: 1px solid #776e65;
-    margin-left: 20px;
+    float: right;
+    margin-left: 0;
     width: 80px;
     outline: none;
     color: #776e65;
@@ -117,6 +131,12 @@ body {
     background-position: calc(100% + 1px) 8px, calc(100% - 5px) 8px;
     border-color: #0dd3c7;
     outline: 0;
+}
+@media (max-width: 600px) {
+    .difficulty-select {
+        width: 100%;
+        margin-top: 10px;
+    }
 }
 
 .difficulty-select option {
@@ -180,13 +200,21 @@ select:-moz-focusring {
 
 .reset-button {
     position: relative;
-    top: -30px;
-    right: -185px;
+    top: -40px;
+    right: -190px;
     width: 50px;
     margin: 0 auto;
-    font-size: 30px;
+    font-size: 40px;
     font-weight: bold;
     cursor: pointer;
+}
+@media (max-width: 600px) {
+    .reset-button {
+        position: initial;
+        margin-right: 15px;
+        margin-top: 20px;
+        width: 25px;
+    }
 }
 .reset-button span {
     opacity: 0;
