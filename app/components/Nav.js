@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-function Nav () {
+const Nav = props => {
     return (
         <div className="header">
             <div className="container">
@@ -16,6 +16,6 @@ function Nav () {
             </div>
         </div>
     )
-}
+};
 
 module.exports = Nav;

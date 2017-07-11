@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default class Popup extends React.Component {
-
+class Popup extends React.Component {
     render() {
         return (
             <div className="popup">
@@ -13,3 +13,9 @@ export default class Popup extends React.Component {
         )
     }
 }
+Popup.propTypes = {
+    text: PropTypes.string.isRequired,
+    restartGame: PropTypes.func.isRequired
+};
+
+module.exports = Popup;

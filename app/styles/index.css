@@ -32,7 +32,7 @@ html, body {
 }
 .nav li {
     list-style-type: none;
-    margin-right: 30px;
+    margin: 0 20px;
 }
 .nav a {
     text-decoration: none;
@@ -62,49 +62,47 @@ html, body {
     padding-top: 50px;
 }
 
-.team-container {
-    max-width: 300px;
+.settings-container {
+    max-width: 400px;
     padding: 0 20px;
     margin: 0 auto;
 }
-.team-container .team {
+.settings-container .team {
     display: flex;
     padding-top: 40px;
 }
-.team-container .team:first-child {
-    float: left;
-}
-.team-container .team:first-child {
-    float: right;
-}
-.team-container .team .item {
-    width: 85px;
-    height: 85px;
-    border: 5px solid #c8c8c8;
+.settings-container .team .item {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto;
+    border: 6px solid #c8c8c8;
     border-radius: 3px;
     background: #e5e5e5;
-    font-size: 70px;
-    line-height: 85px;
+    font-size: 75px;
+    line-height: 90px;
     text-align: center;
     color: #0dd3c7;
     text-shadow: 2px 2px 3px #3a5655;
     cursor: pointer;
     transition-duration: 0.5s;
 }
-.team-container .team .item.active, .team-container .team .item:hover {
+.settings-container .team .item.active, .settings-container .team .item:hover {
     background: #c8c8c8;
 }
 
 .level {
     padding-top: 50px;
     letter-spacing: 0.5px;
+    display: flex;
+}
+.level label {
+    margin: 0 0 0 auto;
 }
 .difficulty-select {
     border: none;
     border-bottom: 1px solid #776e65;
-    float: right;
-    margin-left: 0;
-    width: 80px;
+    margin: 0 auto;
+    width: 100px;
     outline: none;
     color: #776e65;
     font-size: 16px;
@@ -122,7 +120,7 @@ html, body {
     background-image: linear-gradient(45deg, transparent 50%, gray 50%),
     linear-gradient(135deg, gray 50%, transparent 50%);
     background-position: calc(100% - 5px) calc(8px), calc(100% + 1px) calc(8px);
-    background-size: 7px 5px, 6px 5px;
+    background-size: 7px 6px, 6px 6px;
     background-repeat: no-repeat;
 }
 .difficulty-select:focus {
@@ -131,12 +129,6 @@ html, body {
     background-position: calc(100% + 1px) 8px, calc(100% - 5px) 8px;
     border-color: #0dd3c7;
     outline: 0;
-}
-@media (max-width: 600px) {
-    .difficulty-select {
-        width: 100%;
-        margin-top: 10px;
-    }
 }
 
 .difficulty-select option {
@@ -170,9 +162,11 @@ select:-moz-focusring {
     padding-bottom: 30px;
 }
 .play-field {
+    display: table;
     background: #c8c8c8;
     border-radius: 5px;
-    padding: 10px;
+    padding: 5px;
+    margin: 0 auto;
 }
 .play-field .row {
     display: flex;
@@ -180,41 +174,32 @@ select:-moz-focusring {
 
 .play-field .row .cell {
     width: 100px;
-    height: 85px;
+    height: 100px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.play-field .row .cell > div {
+    width: 100%;
+    height: 100%;
     border-radius: 3px;
     background: #e5e5e5;
-    margin: 0 10px 10px 0;
-    font-size: 70px;
-    line-height: 85px;
+    font-size: 75px;
+    line-height: 90px;
     text-align: center;
     color: #0dd3c7;
     text-shadow: 2px 2px 3px #3a5655;
     cursor: pointer;
 }
-.play-field .row:last-child .cell {
-    margin: 0 10px 0 0;
-}
-.play-field .row .cell:last-child {
-    margin: 0;
-}
 
 .reset-button {
-    position: relative;
-    top: -40px;
-    right: -190px;
-    width: 50px;
+    position: absolute;
+    bottom: -12px;
+    right: -60px;
     margin: 0 auto;
     font-size: 40px;
-    font-weight: bold;
+    font-weight: 700;
     cursor: pointer;
-}
-@media (max-width: 600px) {
-    .reset-button {
-        position: initial;
-        margin-right: 15px;
-        margin-top: 20px;
-        width: 25px;
-    }
 }
 .reset-button span {
     opacity: 0;
@@ -285,6 +270,34 @@ select:-moz-focusring {
     background: rgb(32, 105, 114);
 }
 
+@media (max-width: 600px) {
+    .level {
+        display: block;
+    }
+    .difficulty-select {
+        width: 100%;
+        margin-top: 10px;
+    }
+    .play-field .row .cell {
+        width: 90px;
+        height: 90px;
+        padding: 4px;
+    }
+    .reset-button {
+        position: initial;
+        margin-right: 15px;
+        margin-top: 20px;
+        width: 25px;
+    }
+}
+
+@media (max-width: 300px) {
+    .play-field .row .cell {
+        width: 75px;
+        height: 75px;
+        padding: 3px;
+    }
+}
 
 @keyframes smooth-appear {
     0%   { opacity: 0;}
@@ -304,7 +317,7 @@ select:-moz-focusring {
 .play-field .row .cell span {
     animation: smooth-appear 0.5s;
 }
-.title, .game-container, .description {
+.settings-container, .game-container, .description {
     animation: smooth-appear-from-top 1s;
 }
 

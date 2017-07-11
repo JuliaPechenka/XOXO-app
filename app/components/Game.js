@@ -5,7 +5,7 @@ import Team from './Team';
 import Level from './Level';
 import Popup from './Popup';
 
-export default class Game extends React.Component {
+class Game extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -22,7 +22,7 @@ export default class Game extends React.Component {
             this.setState({
                 team: value
             })
-        }, 500);
+        }, 200);
     }
 
     selectLevel(value) {
@@ -30,7 +30,7 @@ export default class Game extends React.Component {
             this.setState({
                 level: value
             })
-        }, 500);
+        }, 200);
     }
 
     userStep(i) {
@@ -47,13 +47,13 @@ export default class Game extends React.Component {
             if (winning(squares, this.state.team)) {
                 this.setState({
                     showPopup: true,
-                    popupText: 'you win!  :)'
+                    popupText: 'you win!'
                 });
                 return;
             } else if (round > 8) {
                 this.setState({
                     showPopup: true,
-                    popupText: 'tie!  o_o'
+                    popupText: 'tie!'
                 });
                 return;
             } else {
@@ -67,13 +67,13 @@ export default class Game extends React.Component {
                 if (winning(squares, opponent)) {
                     this.setState({
                         showPopup: true,
-                        popupText: 'you lose!  :p'
+                        popupText: 'you lose!'
                     });
                     return;
                 } else if (round === 0) {
                     this.setState({
                         showPopup: true,
-                        popupText: 'tie!  o_o'
+                        popupText: 'tie!'
                     });
                     return;
                 }
@@ -96,24 +96,16 @@ export default class Game extends React.Component {
 
         return (
             <div className="container">
-                <div className="team-container">
-                    {(!this.state.team || !this.state.level) &&
+                {(!this.state.team || !this.state.level) &&
+                    <div className="settings-container">
                         <div className="title">Choose your side</div>
-                    }
-                    <div>
-                        {(!this.state.team || !this.state.level) &&
-                            <Team value='O' onClick={this.selectTeam.bind(this)}/>
-                        }
-                        {(!this.state.team || !this.state.level) &&
-                            <Team value='X' onClick={this.selectTeam.bind(this)}/>
-                        }
+                        <Team onClick={this.selectTeam.bind(this)}/>
+                        <Level onChange={this.selectLevel.bind(this)}/>
                     </div>
-                    {(!this.state.team || !this.state.level) &&
-                            <Level onChange={this.selectLevel.bind(this)}/>}
-                </div>
+                }
 
                 {this.state.team && this.state.level &&
-                    <div>
+                    <div className="game-container">
                         <PlayField squares={squares} onClick={i => this.userStep(i)} />
                         <div onClick={this.cleanField.bind(this)} className="reset-button">&#8635;<span>reset</span></div>
                     </div>
@@ -128,6 +120,8 @@ export default class Game extends React.Component {
 
     }
 }
+
+module.exports = Game;
 
 
 

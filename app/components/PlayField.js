@@ -1,14 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Grid = (props) => {
+const Grid = props => {
     return (
         <div className="cell" onClick={props.onClick}>
-            {Number.isInteger(props.value) ? '': <span>{props.value}</span>}
+            <div>{Number.isInteger(props.value) ? '' : props.value}</div>
         </div>
     )
-}
+};
+Grid.propTypes = {
+    value: PropTypes.oneOfType([PropTypes.string,PropTypes.number]),
+    onClick: PropTypes.func.isRequired
+};
 
-export default class PlayField extends React.Component {
+
+class PlayField extends React.Component {
     renderSquare(i) {
         return (
             <Grid
@@ -20,7 +26,7 @@ export default class PlayField extends React.Component {
 
     render() {
         return (
-            <div className="game-container" >
+            <div className="game">
                 <div className="game-title">Try to win me!</div>
                 <div className="play-field">
                     <div className="row">
@@ -43,3 +49,5 @@ export default class PlayField extends React.Component {
         );
     }
 }
+
+module.exports = PlayField;

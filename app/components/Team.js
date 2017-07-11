@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default class Team extends React.Component {
+class Team extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isActive: false
+            selectedTeam: ''
         };
 
         this.selectTeam = this.selectTeam.bind(this);
@@ -12,19 +13,34 @@ export default class Team extends React.Component {
 
     selectTeam(team) {
         this.setState({
-            isActive: true
+            selectedTeam: team
+        }, function() {
+            this.props.onClick(
+                this.state.selectedTeam
+            );
         });
-
-        this.props.onClick(
-            this.props.value
-        );
     }
 
     render() {
+        var teams = ['X', 'O'];
         return (
             <div className="team">
-                <div className={"item " + (this.state.isActive ? 'active' : 'hidden')} onClick={this.selectTeam}>{this.props.value}</div>
+                {teams.map((team) => {
+                    return (
+                        <div
+                            className={"item " + (team === this.state.selectedTeam ? 'active' : 'hidden')}
+                            onClick={this.selectTeam.bind(null, team)}
+                            key={team}>
+                                {team}
+                        </div>
+                    )
+                }, this)}
             </div>
         )
     }
 }
+Team.propTypes = {
+    onClick: PropTypes.func.isRequired
+};
+
+module.exports = Team;

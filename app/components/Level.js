@@ -1,19 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default class Level extends React.Component {
+class Level extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            value: ''
+            value: 'aa'
         };
 
         this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(event) {
-        event.preventDefault();
-
         this.setState({
             value: event.target.value
         }, function() {
@@ -36,3 +35,8 @@ export default class Level extends React.Component {
         )
     }
 }
+Level.propTypes = {
+    onChange: PropTypes.func.isRequired
+};
+
+module.exports = Level;
